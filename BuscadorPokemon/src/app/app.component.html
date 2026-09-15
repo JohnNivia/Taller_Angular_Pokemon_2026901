@@ -1,16 +1,41 @@
 <header>
     <h1>{{titulo}}</h1>
+
     <nav>
-        <a 
-        routerLink = "/registro-usuario" routerLinkActivate="active-tab">
+        <a routerLink="/registro-usuario" routerLinkActive="active-tab">
+            Registro Usuario
         </a>
-        <a 
-        routerLink = "/buscador-pokemon" routerLinkActivate="active-tab">
+
+        <a routerLink="/buscador-pokemon" routerLinkActive="active-tab">
+            Buscador Pokemon
+        </a>
+
+        <a routerLink="/pokemon/psyduck" routerLinkActive="active-tab">
+            Psyduck
+        </a>
+
+        <a routerLink="/pokemon/growlithe" routerLinkActive="active-tab">
+            Growlithe
+        </a>
+
+        <a routerLink="/pokemon/bulbasaur" routerLinkActive="active-tab">
+            Bulbasaur
+        </a>
+
+        <a routerLink="/pokemon/machop" routerLinkActive="active-tab">
+            Machop
+        </a>
+
+        <a routerLink="/pokemon/gastly" routerLinkActive="active-tab">
+            Gastly
+        </a>
+
+        <a routerLink="/pokemon/jolteon" routerLinkActive="active-tab">
+            Jolteon
         </a>
     </nav>
-<main>
-    <router-outlet>
-
-    </router-outlet>
-</main>
 </header>
+
+<main>
+    <router-outlet></router-outlet>
+</main>
