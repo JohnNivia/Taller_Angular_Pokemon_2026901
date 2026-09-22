@@ -1,11 +1,14 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable, signal } from '@angular/core';
+import { Injectable, inject, signal } from '@angular/core';
+import { Observable } from 'rxjs';
 
 export interface PokemonTarjeta {
+  id: number;
+  nombre: string;
   imagen: string;
   tipo: string;
   baseExperience: string;
-  esFavorito?: boolean;
+  esFavorito: boolean;
 }
 
 @Injectable({
@@ -38,16 +41,30 @@ export class PokemonStorage {
     this.misPokemons.set(actualizados);
     localStorage.setItem(this.STORAGE_KEY, JSON.stringify(actualizados))
   }
-  actualizarPokemon{
-
-  }
-
-  eliminarPokemon{
-
-  }
-
-  export class ResaltarPokemon{
+  actualizarFavorito(id: number){
+    const actualizados = this.misPokemons().map( poke => {
+      if (poke.id === id){
+        return{ ...poke, esFavorito: !poke.esFavorito}
+      }
+      return poke
     
+    }
+  );
+    this.misPokemons.set(actualizados);
+    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(actualizados))
   }
+
+  liberarPokemon(id: number){
+    const filtrado = this.misPokemons().filter( poke => poke.id !== id);
+    
+    this.misPokemons.set(filtrado);
+    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(filtrado))
+  
+  }
+consultarPokemon(name: string) :Observable<any>{
+  const apiUrl = 'https://pokeapi.co/api/v2/pokemon/'
+  
+  return this.http.get(`$(apiUrl}}/${name.toLowerCase()}`)
+}
 }
 

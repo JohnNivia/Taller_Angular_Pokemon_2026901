@@ -7,15 +7,20 @@ import { BulbasaurComponent } from './components/pokemon/bulbasaur.component/bul
 import { MachopComponent } from './components/pokemon/machop.component/machop.component';
 import { GastlyComponent } from './components/pokemon/gastly.component/gastly.component';
 import { JolteonComponent } from './components/pokemon/jolteon.component/jolteon.component';
+import { PokemonDetalles } from './components/pokemon-detalles/pokemon-detalles';
+import { PokemonLista } from './components/pokemon-lista/pokemon-lista';
 export const routes: Routes = [
     { path: '', redirectTo: 'registro', pathMatch: 'full' },
     { path: 'registro', component: RegistroUsuario },
     { path: 'buscador', component: BuscadorPokemon },
-    { path: 'pokemon/psyduck', component: PsyduckComponent },
-    { path: 'pokemon/growlithe', component: GrowlitheComponent },
-    { path: 'pokemon/bulbasaur', component: BulbasaurComponent },
-    { path: 'pokemon/machop', component: MachopComponent },
-    { path: 'pokemon/gastly', component: GastlyComponent },
-    { path: 'pokemon/jolteon', component: JolteonComponent },
-    { path: '**', redirectTo: 'registro' }
+
+    { path: 'psyduck_manual', component: PsyduckComponent },
+    { path: 'growlithe_manual', component: GrowlitheComponent },
+    { path: 'bulbasaur_manual', component: BulbasaurComponent },
+    { path: 'machop_manual', component: MachopComponent },
+    { path: 'gastly_manual', component: GastlyComponent },
+    { path: 'jolteon_manual', component: JolteonComponent },
+    { path: 'pokemon_lista', component: PokemonLista},
+    { path: 'pokemon_detalles', component: PokemonDetalles},
+    { path: '**', redirectTo: 'registro' },
 ];
