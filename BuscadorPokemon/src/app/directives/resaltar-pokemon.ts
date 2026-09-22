@@ -10,18 +10,19 @@ export class ResaltarPokemon {
   colorBorde = input<string>('#FFFF00')
 
   @HostListener('mouseenter') onMouseEnter(){
-    this.aplicarEfecto(`3px solid ${this.colorBorde()}`,`scale(1.03)`,`0 8px 16px rgba(0,0,0,0.15)`)
+    this.aplicarEfecto(`3px solid ${this.colorBorde()}`,`scale(1)`,`none`)
+  }
+  @HostListener('mouseleave') onMouseLeave(){
+    this.aplicarEfecto(`1px solid #e0e0e0`,`scale(1.03)`,`0 8px 16px rgba(0,0,0,0.15)`);
   }
   aplicarEfecto(borde: string, escala: string, sombra:string){
     const elemento = this.el.nativeElement;
-    elemento.style.borde = borde;
+    elemento.style.border = borde;
     elemento.style.transform = escala;
     elemento.style.boxShadow = sombra;
     elemento.style.transform = 'all 0.25s ease-in-out'
 
   }
-  @HostListener('mouseleave') onMouseEnter(){
-    this.aplicarEfecto(`1px solid #e0e0e0`,`scale(1.03)`,`0 8px 16px rgba(0,0,0,0.15)`)
-  }
+ 
   
 }
